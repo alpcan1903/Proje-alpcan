@@ -17,6 +17,7 @@ header{
   background:#ffffffcc;
   backdrop-filter:blur(8px);
   border-bottom:1px solid #cbd5e1;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
 }
 
 .header-flex{
@@ -29,6 +30,7 @@ header{
   padding:0 40px;
 }
 
+/* LOGO */
 .logo{
   display:flex;
   gap:8px;
@@ -46,29 +48,48 @@ header{
   justify-content:center;
   border-radius:8px;
   font-weight:800;
+  box-shadow:0 6px 16px rgba(22,163,74,.45);
 }
 
 .logo-text span{color:#16a34a;}
 
+/* NAV */
 nav ul{
   list-style:none;
   display:flex;
   gap:24px;
-  justify-content:center; /* SADECE BU EKLENDİ */
+  justify-content:center;
   animation:fadeDown .6s;
 }
 
 nav a{
+  position:relative;
   text-decoration:none;
   color:#0f172a;
   font-weight:600;
   transition:.3s;
 }
 
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#16a34a;
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
 nav a:hover{
   color:#16a34a;
 }
 
+/* CTA */
 .cta{
   justify-self:end;
   background:#16a34a;
@@ -78,11 +99,12 @@ nav a:hover{
   text-decoration:none;
   animation:slideRight .6s;
   transition:.3s;
+  box-shadow:0 8px 20px rgba(22,163,74,.4);
 }
 
 .cta:hover{
   background:#22c55e;
-  transform:scale(1.05);
+  transform:translateY(-2px) scale(1.05);
 }
 
 /* HERO */
@@ -97,7 +119,8 @@ nav a:hover{
 }
 
 .hero-box{
-  background:rgba(255,255,255,.2);
+  position:relative;
+  background:rgba(255,255,255,.22);
   backdrop-filter:blur(10px);
   padding:40px;
   border-radius:20px;
@@ -105,6 +128,16 @@ nav a:hover{
   color:#fff;
   max-width:950px;
   animation:fadeUp .6s;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+}
+
+.hero-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.25);
+  pointer-events:none;
 }
 
 /* SEARCH */
@@ -122,11 +155,12 @@ nav a:hover{
   border-radius:10px;
   border:none;
   transition:.3s;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
 }
 
 .search-box select:hover,
 .search-box input:hover{
-  transform:scale(1.05);
+  transform:translateY(-2px) scale(1.05);
 }
 
 .search-box button{
@@ -137,11 +171,12 @@ nav a:hover{
   border-radius:10px;
   cursor:pointer;
   transition:.3s;
+  box-shadow:0 8px 22px rgba(22,163,74,.45);
 }
 
 .search-box button:hover{
   background:#22c55e;
-  transform:scale(1.05);
+  transform:translateY(-2px) scale(1.08);
 }
 
 /* SLIDER */
@@ -157,11 +192,12 @@ nav a:hover{
   overflow:hidden;
   width:220px;
   animation:fadeUp 1.2s;
-  transition:.3s;
+  transition:.35s;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
 }
 
 .slider-card:hover{
-  transform:translateY(-8px) scale(1.05);
+  transform:translateY(-10px) scale(1.06);
 }
 
 .slider-card img{
@@ -204,6 +240,7 @@ footer{
 }
 
 .footer-center a{
+  position:relative;
   color:#22c55e;
   text-decoration:none;
   transition:.3s;
@@ -217,7 +254,7 @@ footer{
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,.55);
   display:none;
   align-items:center;
   justify-content:center;
@@ -234,12 +271,15 @@ footer{
   width:320px;
   position:relative;
   animation:fadeUp .4s;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
 .modal-box input{
   width:100%;
   padding:10px;
   margin-top:10px;
+  border-radius:8px;
+  border:1px solid #cbd5e1;
 }
 
 .close{
@@ -264,16 +304,13 @@ footer{
 
 .modal-btn:hover{
   background:#22c55e;
+  transform:scale(1.05);
 }
 
 .modal-btn.outline{
   background:#fff;
   border:2px solid #16a34a;
   color:#16a34a;
-}
-
-.backBtn{
-  animation:fadeUp .4s;
 }
 
 .hidden{display:none;}
